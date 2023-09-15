@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pokedex</title>
+	<link rel="icon" sizes="32x32" style="display: block;" type="image/png" href="./img/favicon1.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+		rel="stylesheet">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+	<script src="script.js"></script>
+	<script src="const.js"></script>
+	<script src="search.js"></script>
+	<script src="barChart.js"></script>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="loadAllPokemonNames()">
+
+	<div class="main-container">
+		<div class="header">
+			<div class="top-header">
+				<img id="pokeball" src="img/pokeball.png" alt="">
+				<img src="img/pokedex_logo.png" alt="">
+			</div>
+			<div class="sub-header">
+				<a href="#pokedex"><img id="btn-up" src="img/btn-right.png" alt=""></a>
+					<input id="search-field" type="text" required placeholder="Search...">
+					<img id="lens" type="submit" src="img/lens.png" alt="" onclick="searchForPokemon()">
+				<img id="refresh" src="img/refresh.png" alt="" onclick="refreshSearch()" >
+				<a href="#button"><img id="btn-down" src="img/btn-right.png" alt=""></a>
+			</div>
+		</div>
+
+		<div id="pokedex-search" class="d-none">
+		</div>
+
+		<div id="pokedex">
+		</div>
+
+		<div id="button" class="button" onclick="increaseIndex()">Load more</div>
+	</div>
+
+	<div id="card_container" class="d-none" onclick="clickToClose()">
+		<div class="card-bg">
+			<div class="card-section">
+				<div id="btn-left"></div>
+				<div id="card-big" onclick="doNotClose(event)">
+
+					<div class="header-card-big padding">
+						<div class="header-card-top">
+							<div class="header-card-big-left">
+								<div id="pokemonName" class="name-field"></div>
+								<div class="types-field">
+									<div id="pokemonType1" class="type-field"></div>
+									<div id="pokemonType2" class="type-field"></div>
+								</div>
+							</div>
+							<div id="pokemonId" class="id-field">ID</div>
+						</div>
+					</div>
+
+					<div class="image-field"><img id="pokemonImg"></div>
+					<div class="stats-field padding">
+						<p>Base Stats</p>
+						<div>
+							<canvas id="barChart"></canvas>
+						</div>
+					</div>
+				</div>
+				<div id="btn-right"></div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
